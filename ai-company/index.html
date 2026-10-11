@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アフィリ・ネタ工房｜自分専用のAI社員・戦略ボード</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1d2433;--sub:#4b5568;--line:#d9deea;--accent:#1f5fbf;--warn:#8a4b00;--warnbg:#fff4e0;--ok:#14633a;--okbg:#e6f5ec;--code:#101828;--codeink:#e8edf7}
+@media (prefers-color-scheme:dark){:root{--bg:#10141c;--card:#182030;--ink:#eef1f7;--sub:#b4bdce;--line:#2c3750;--accent:#7db0ff;--warn:#ffcf8a;--warnbg:#3a2a10;--ok:#8fe0b0;--okbg:#10301f;--code:#0a0e16;--codeink:#e8edf7}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;line-height:1.75;font-size:16px}
+header,main,footer{max-width:1080px;margin:0 auto;padding:0 16px}
+header{padding-top:28px;padding-bottom:8px}
+.kicker{color:var(--accent);font-weight:700;font-size:.9rem;margin:0}
+h1{font-size:1.6rem;margin:.2em 0;line-height:1.4}
+h2{font-size:1.25rem;margin:0 0 .6em;border-left:5px solid var(--accent);padding-left:.6em;line-height:1.4}
+h3{font-size:1.05rem;margin:.2em 0}
+p{margin:.4em 0}
+.lead{color:var(--sub)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.badge{padding:3px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line);background:var(--card)}
+.badge.ok{background:var(--okbg);color:var(--ok);border-color:transparent}
+.badge.wait{background:var(--warnbg);color:var(--warn);border-color:transparent}
+nav{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:12px 0}
+nav ol{margin:.3em 0;padding-left:1.4em;columns:1}
+nav a{color:var(--accent)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin:16px 0}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+.card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--bg)}
+.card dl{margin:.4em 0 0}
+.card dt{font-weight:700;font-size:.85rem;color:var(--sub);margin-top:.5em}
+.card dd{margin:0}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--bg);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{background:var(--code);color:var(--codeink);padding:12px;border-radius:10px;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;margin:.6em 0;font-size:.88rem;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+.copy{user-select:all;-webkit-user-select:all;cursor:text}
+.note{background:var(--warnbg);color:var(--warn);border-radius:10px;padding:8px 12px;margin:.6em 0}
+.flow{display:flex;flex-direction:column;gap:6px;padding:0;list-style:none;counter-reset:s}
+.flow li{counter-increment:s;border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:var(--bg)}
+.flow li::before{content:counter(s) ". ";font-weight:700;color:var(--accent)}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;overflow-wrap:anywhere}
+th{background:var(--bg)}
+.scroll{overflow-x:auto}
+footer{padding-bottom:32px;color:var(--sub);font-size:.85rem}
+@media (min-width:720px){h1{font-size:2rem}.grid.cols2{grid-template-columns:1fr 1fr}.grid.cols3{grid-template-columns:1fr 1fr}nav ol{columns:2}}
+@media (min-width:1000px){.grid.cols3{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+<p class="kicker">自分専用のAI社員・戦略ボード</p>
+<h1>アフィリ・ネタ工房（仮）</h1>
+<p class="lead">商品に興味を持つ読者の悩みから、アフィリエイト記事ネタを3案つくる小さなAI社員チームです。</p>
+<div class="badges">
+<span class="badge ok">設定作成済み</span>
+<span class="badge wait">実業務未実行</span>
+<span class="badge wait">連携未接続（このチーム用の接続は未実施）</span>
+<span class="badge wait">担当者の呼び出し未確認</span>
+</div>
+<nav aria-label="目次">
+<strong>目次</strong>
+<ol>
+<li><a href="#s1">目標と小さな成功条件</a></li>
+<li><a href="#s2">誰にどんな価値を届けるか</a></li>
+<li><a href="#s3">社員カード</a></li>
+<li><a href="#s4">受け渡し順</a></li>
+<li><a href="#s5">材料・成果物・保存先</a></li>
+<li><a href="#s6">最初の実行計画と依頼文</a></li>
+<li><a href="#s7">具体的なコード・実装方針</a></li>
+<li><a href="#s8">本人の承認が必要なこと</a></li>
+<li><a href="#s9">現在の状態と次の一歩</a></li>
+</ol>
+</nav>
+</header>
+<main>
+
+<section id="s1">
+<h2>1. 目標と小さな成功条件</h2>
+<p><strong>目標：</strong>副業としてのアフィリエイトを小さく試す。まずは記事ネタ出しを社員に任せる練習をする。</p>
+<p><strong>今回の成功条件（仮案）：</strong></p>
+<ul>
+<li>架空の商品ジャンルで、読者の悩み別の記事ネタが<strong>3案</strong>そろう</li>
+<li>各案が、そのまま記事に展開できる具体性（見出し案・導入の方向）を持つ</li>
+<li>誇大表現や根拠のない数字が含まれていないことを、チェック担当が点検している</li>
+</ul>
+<p class="lead">ペースは「まず今回1回」。収益や成果の数字は、まだ何も作っていません。</p>
+</section>
+
+<section id="s2">
+<h2>2. 誰にどんな価値を届けるか</h2>
+<div class="grid cols2">
+<div class="card"><h3>届ける相手</h3><p>商品に興味を持っていて、比較や選び方を探している人。</p></div>
+<div class="card"><h3>届ける価値</h3><p>読者の悩み（選び方・価格・手間・不安など）に沿った、分かりやすい記事の切り口。</p></div>
+</div>
+<p class="note">読者向けの成果物でも、公開・送信の許可ではありません。公開先や実在の相手の情報も使いません。</p>
+</section>
+
+<section id="s3">
+<h2>3. 社員カード（リーダー＋3名）</h2>
+<div class="grid cols3">
+<div class="card"><h3>リーダー（この会話のClaude）</h3>
+<dl><dt>役割</dt><dd>依頼整理・担当の呼び出し・最終統合・保存</dd>
+<dt>識別名</dt><dd>（定義ファイルなし）</dd>
+<dt>入力</dt><dd>あなたの依頼、各担当の結果</dd>
+<dt>出力</dt><dd>記事ネタ3案の完成物、分担ログ</dd></dl></div>
+<div class="card"><h3>悩み整理・ネタ出し担当</h3>
+<dl><dt>役割</dt><dd>読者の悩みを挙げ、ネタ候補を3案に絞る</dd>
+<dt>識別名</dt><dd><code>idea-planner</code></dd>
+<dt>入力</dt><dd>架空の商品ジャンル、読者像</dd>
+<dt>出力</dt><dd>悩み一覧、推薦3案</dd></dl></div>
+<div class="card"><h3>具体化・骨子作成担当</h3>
+<dl><dt>役割</dt><dd>3案を見出し案・導入の方向まで具体化する</dd>
+<dt>識別名</dt><dd><code>article-drafter</code></dd>
+<dt>入力</dt><dd>推薦3案（リーダー経由）</dd>
+<dt>出力</dt><dd>案ごとの骨子、【要確認】一覧</dd></dl></div>
+<div class="card"><h3>表現チェック担当</h3>
+<dl><dt>役割</dt><dd>誇大表現・断定・捏造・広告表記の確認点を点検</dd>
+<dt>識別名</dt><dd><code>claim-checker</code></dd>
+<dt>入力</dt><dd>3案と骨子（リーダー経由）</dd>
+<dt>出力</dt><dd>指摘一覧と修正案、本人への確認点</dd></dl></div>
+</div>
+</section>
+
+<section id="s4">
+<h2>4. お願いから最終統合までの受け渡し順</h2>
+<ol class="flow">
+<li>あなたがリーダーに依頼する（架空の商品ジャンルを渡す）</li>
+<li>リーダーが依頼を整理し、<code>idea-planner</code> に渡す</li>
+<li><code>idea-planner</code> の3案を、リーダーが <code>article-drafter</code> に渡す</li>
+<li>骨子を、リーダーが <code>claim-checker</code> に渡す</li>
+<li>リーダーが指摘を反映し、記事ネタ3案を1つにまとめる</li>
+<li>リーダーが成果物と分担ログを保存し、あなたに報告する</li>
+</ol>
+<p class="lead">担当同士は直接やり取りせず、必ずリーダーを通します。これは運用の説明です。</p>
+</section>
+
+<section id="s5">
+<h2>5. 使う材料と出来上がるもの・保存先</h2>
+<div class="scroll"><table>
+<tr><th>種類</th><th>内容</th><th>場所</th></tr>
+<tr><td>材料</td><td>架空の商品ジャンル（依頼のときに渡す）。実在の情報・個人情報は使わない</td><td>依頼文の中（ファイル読み込みなし）</td></tr>
+<tr><td>成果物</td><td>悩み別の記事ネタ3案（<code>成果物.html</code>）</td><td><code>ai-company/outputs/（作業フォルダ）/</code></td></tr>
+<tr><td>分担ログ</td><td>実際に呼んだ担当と結果の記録</td><td><code>ai-company/outputs/（作業フォルダ）/分担ログ.md</code></td></tr>
+<tr><td>補助資料</td><td>会社設計・使い方・最初の依頼</td><td><code>ai-company/</code> 直下</td></tr>
+</table></div>
+<p class="lead">まだ必要な材料：架空の商品ジャンルを1つ（例：「架空のコーヒー器具」）。</p>
+</section>
+
+<section id="s6">
+<h2>6. 最初の実行計画とそのまま貼れる依頼文</h2>
+<ul>
+<li><strong>担当順：</strong>idea-planner → article-drafter → claim-checker → リーダー統合</li>
+<li><strong>材料：</strong>あなたが渡す架空の商品ジャンルのみ</li>
+<li><strong>作る成果物：</strong>読者の悩み別の記事ネタ3案（HTML）と分担ログ</li>
+<li><strong>品質確認：</strong>具体性・誇大表現なし・架空の明示</li>
+<li><strong>あなたの確認ポイント：</strong>方針に大きな判断が出たとき、完成時</li>
+</ul>
+<p class="note">この計画を載せることは、仕事の開始や接続の承認ではありません。あなたが依頼文を貼るまで何も始まりません。</p>
+<p><strong>最初の依頼文</strong>（選択してコピー。ジャンルは例として「架空のコーヒー器具」を入れています）：</p>
+<pre class="copy"><code>私が架空の商品ジャンル「架空のコーヒー器具」を渡します。読者の悩みごとの切り口で、アフィリエイト記事ネタを3案出してください。idea-planner、article-drafter、claim-checker の本物の担当者を順番に呼び出し、リーダーが受け渡しと最終統合をしてください。実在の商品名・価格・実績は使わず、成果物と分担ログを ai-company/outputs/ に新規保存してください。</code></pre>
+</section>
+
+<section id="s7">
+<h2>7. 具体的なコード・実装方針</h2>
+<h3>利用環境（確認できたこと）</h3>
+<ul>
+<li>Claude Code（クラウド環境）。作業フォルダ：<code>/home/user/test</code></li>
+<li>ファイル作成機能あり。担当者を呼び出す機能は利用可能な状態ですが、<strong>実際の呼び出しは未確認</strong></li>
+</ul>
+<h3>ファイルの役目</h3>
+<div class="scroll"><table>
+<tr><th>ファイル</th><th>役目</th></tr>
+<tr><td><code>CLAUDE.md</code></td><td>リーダーの運用ルールと安全ルール</td></tr>
+<tr><td><code>.claude/agents/idea-planner.md</code></td><td>悩み整理・ネタ出し担当の定義</td></tr>
+<tr><td><code>.claude/agents/article-drafter.md</code></td><td>具体化・骨子作成担当の定義</td></tr>
+<tr><td><code>.claude/agents/claim-checker.md</code></td><td>表現チェック担当の定義</td></tr>
+<tr><td><code>ai-company/index.html</code></td><td>このボード（静的HTML/CSS 1枚）</td></tr>
+<tr><td><code>ai-company/会社設計.md</code> / <code>使い方.md</code> / <code>最初の依頼.txt</code></td><td>設計の控え、使い方、依頼文</td></tr>
+<tr><td><code>ai-company/inputs/</code> / <code>outputs/</code></td><td>材料置き場（今回は未使用）／成果物の保存先</td></tr>
+</table></div>
+<h3>採用技術と理由</h3>
+<p>HTML/CSSの静的1枚（サーバー・インストール不要でそのまま開ける）、Claude Code、<code>.claude/agents/</code> のMarkdown定義（担当の役割を文章で編集できる）。</p>
+<h3>担当定義の例（idea-planner の先頭部分）</h3>
+<pre><code>---
+name: idea-planner
+description: &quot;アフィリエイト記事ネタを考える担当。リーダーから架空の商品ジャンルと読者像を受け取り、読者の悩み別に記事ネタの候補と切り口を返す。&quot;
+tools: Read, Glob, Grep
+model: inherit
+---</code></pre>
+<p>役割を変えたいときは、該当する <code>.claude/agents/（識別名）.md</code> の <code>description</code> と本文を編集します。ただし <code>name</code> を変える場合は <code>CLAUDE.md</code> の呼び出し名も合わせて直してください。</p>
+<h3>実行手順</h3>
+<ol>
+<li><code>ai-company/index.html</code> をブラウザで開く</li>
+<li>内容を確認する</li>
+<li>必要な材料（架空のジャンル）を決める</li>
+<li>最初の依頼文をClaude Codeに貼る</li>
+<li>出力と分担ログを確認する</li>
+</ol>
+<h3>検証手順</h3>
+<p>依頼後、<code>ai-company/outputs/</code> の <code>分担ログ.md</code> に、3名の担当が実際に呼ばれた記録があるかを確認します。記録がなければ、分担は動いていません。</p>
+<h3>今後の案・未実装</h3>
+<p>記事の自動投稿、アフィリエイト管理画面との連携、定期実行などは今回作りません。必要になったときに、別途ご相談します。</p>
+</section>
+
+<section id="s8">
+<h2>8. 接続・公開など本人の承認が必要なこと</h2>
+<ul>
+<li>記事の公開・SNS投稿・外部サービスへの送信</li>
+<li>アフィリエイトサービスへの登録・アカウント接続・申込み・購入</li>
+<li>実在の商品・企業を扱うこと（事実・価格・広告表記の確認も含む）</li>
+<li>個人情報・顧客情報・社外秘の取り込み</li>
+<li>既存ファイルの変更・上書き・削除</li>
+<li>定期実行・常駐・権限変更・インストール</li>
+</ul>
+<p class="note">広告表記の文言や法令への適合は、最終的に本人が確認してください。このボードは適合を保証しません。</p>
+</section>
+
+<section id="s9">
+<h2>9. 現在の状態と次の一歩</h2>
+<div class="grid cols2">
+<div class="card"><h3>いまの状態</h3>
+<ul><li>設定ファイル：作成済み（読み戻し確認は作成後に実施）</li><li>実業務：未実行</li><li>連携：このチーム用の接続は未実施</li><li>担当者の呼び出し：未確認</li></ul></div>
+<div class="card"><h3>次の一歩</h3>
+<ol><li>この画面を一通り読む</li><li>セクション6の依頼文をClaude Codeに貼る</li><li>分担ログで担当の実際の呼び出しを確認する</li></ol></div>
+</div>
+<p class="lead">新しい <code>.claude/agents/</code> が読み込まれない場合は、このフォルダでClaude Codeをいったん終了して開き直してください。担当者の実行にも利用枠を使います。</p>
+</section>
+
+</main>
+<footer>このページは静的なHTMLです。外部への通信・送信・自動実行は含まれていません。</footer>
+</body>
+</html>
